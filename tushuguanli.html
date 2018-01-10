@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>图书管理系统</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+background-image: url(img/background.jpg);
+        }
+
+        h1 {
+            color: azure;
+        }
+
+        .header {
+            margin: 10px auto;
+            /*            height: 100px;*/
+            width: 80%;
+            margin-bottom: 30px;
+
+
+        }
+
+        #find {
+            width: 50px;
+            height: 30px;
+            background-color:#2AABD2;
+ 
+        }
+
+        .header input {
+               border: 1px solid black;
+            height: 30px;
+
+        }
+
+        buttton {
+            border: 3px solid #ccc;
+            height: 30px;
+            width: 30px;
+
+        }
+
+        .context {
+            margin: 10px auto;
+            border-right-color: aqua;
+            /*            height: 500px;*/
+            width: 80%;
+            color: aliceblue;
+        }
+
+        .footer {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            background-color: rgba(100, 100, 100, 0.7);
+            display: none;
+            height: 100%;
+            width: 100%;
+        }
+
+        .text1 {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            margin: auto;
+            height: 300px;
+            width: 600px;
+            background-color: #cffffc;
+            border-radius: 20px;
+            padding: 20px;
+        }
+
+        #build {
+            position: absolute;
+            right: 40px;
+            bottom: 40px;
+            border-radius: 10px;
+            height: 40px;
+            width: 60px;
+            border: 3px solid #cffcfc;
+            background-color: #cfcfff;
+
+        }
+
+        .Oinpt {
+            border-radius: 10px;
+            border: 1px solid #cfcfff;
+            height: 30px;
+            margin: 20px;
+        }
+
+        #table1 {
+            border: 1px solid #CCCCCC;
+            width: 80%;
+            text-align: center;
+        }
+
+        #table1 tr:nth-of-type(1) {
+            font-size: 2vw;
+            font-weight: bold;
+        }
+
+        #table1 tr td button {
+            border-radius: 30px;
+            height: 20px;
+            width: 40px;
+            border: 1px solid #fff;
+            background-color: cornsilk;
+
+        }
+
+        #add {
+
+            height: 30px;
+            width: 70px;
+            border: 3px solid #cffcfc;
+            background-color: #269ABC;
+            margin-left: 73%;
+            margin-top: 10px;
+        }
+
+        .findout {
+            color: red;
+            background-color: #fff;
+        }
+p{
+	color: black;
+}
+    </style>
+</head>
+
+<body>
+    <!--   搜索栏-->
+    <div class="header">
+        <h1 style="text-align: center;margin-bottom: 20px;">欢迎来到图书管理系统</h1>
+        <div id="" style="text-align: center;">
+        	
+     
+        <input id="value1" type="text" placeholder="请输入书名">
+        <input id="value2" type="text" placeholder="请输入作者">
+        <input id="value3" type="text" placeholder="请输入出版社">
+        <button id="find">搜索</button>
+   </div>
+
+    </div>
+    <!--   搜索栏-->
+    <div class="context">
+        <!--       书库列表-->
+        <table id="table1" style="margin: 0 auto;">
+            <tr>
+                <td><p>书名</p></td>
+                <td><p>作者名</p></td>
+                <td><p>数量</p></td>
+                <td><p>出版社</p></td>
+                <td><p>单价</p></td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p class="book">白夜行</p>
+                </td>
+                <td>
+                    <p class="author">东野圭吾</p>
+                </td>
+                <td>
+                    <p class="Onumber">1</p>
+                </td>
+                <td>
+                    <p class="press">言情</p>
+                </td>
+                <td>
+                    <p class="price">36.00$</p>
+                </td>
+                <td><button class="Odelete">删除</button></td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="book">撒哈拉沙漠</p>
+                </td>
+                <td>
+                    <p class="author">三毛</p>
+                </td>
+                <td>
+                    <p class="Onumber">1</p>
+                </td>
+                <td>
+                    <p class="press">自传</p>
+                </td>
+                <td>
+                    <p class="price">39.00$</p>
+                </td>
+                <td><button class="Odelete">删除</button></td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="book">小王子</p>
+                </td>
+                <td>
+                    <p class="author">圣埃克絮佩里</p>
+                </td>
+                <td>
+                    <p class="Onumber">1</p>
+                </td>
+                <td>
+                    <p class="press">历险</p>
+                </td>
+                <td>
+                    <p class="price">34.00$</p>
+                </td>
+                <td><button class="Odelete">删除</button></td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="book">钢铁是怎样炼成的</p>
+                </td>
+                <td>
+                    <p class="author">奥斯特洛夫斯基</p>
+                </td>
+                <td>
+                    <p class="Onumber">1</p>
+                </td>
+                <td>
+                    <p class="press">经历</p>
+                </td>
+                <td>
+                    <p class="price">34.00$</p>
+                </td>
+                <td><button class="Odelete">删除</button></td>
+            </tr>
+            
+              <tr>
+                <td>
+                    <p class="book">战争与和平</p>
+                </td>
+                <td>
+                    <p class="author">托尔斯泰</p>
+                </td>
+                <td>
+                    <p class="Onumber">1</p>
+                </td>
+                <td>
+                    <p class="press">励志</p>
+                </td>
+                <td>
+                    <p class="price">33.00$</p>
+                </td>
+                <td><button class="Odelete">删除</button></td>
+            </tr>
+              <tr>
+                <td>
+                    <p class="book">伊索寓言</p>
+                </td>
+                <td>
+                    <p class="author">伊索</p>
+                </td>
+                <td>
+                    <p class="Onumber">1</p>
+                </td>
+                <td>
+                    <p class="press">寓言故事</p>
+                </td>
+                <td>
+                    <p class="price">33.00$</p>
+                </td>
+                <td><button class="Odelete">删除</button></td>
+            </tr>
+            
+              <tr>
+                <td>
+                    <p class="book">红楼梦</p>
+                </td>
+                <td>
+                    <p class="author">曹雪芹</p>
+                </td>
+                <td>
+                    <p class="Onumber">1</p>
+                </td>
+                <td>
+                    <p class="press">言情</p>
+                </td>
+                <td>
+                    <p class="price">38.00$</p>
+                </td>
+                <td><button class="Odelete">删除</button></td>
+            </tr>
+              <tr>
+                <td>
+                    <p class="book">巴黎圣母院</p>
+                </td>
+                <td>
+                    <p class="author">雨果</p>
+                </td>
+                <td>
+                    <p class="Onumber">1</p>
+                </td>
+                <td>
+                    <p class="press">传记</p>
+                </td>
+                <td>
+                    <p class="price">54.00$</p>
+                </td>
+                <td><button class="Odelete">删除</button></td>
+            </tr>
+            
+              <tr>
+                <td>
+                    <p class="book">童年	</p>
+                </td>
+                <td>
+                    <p class="author">高尔基</p>
+                </td>
+                <td>
+                    <p class="Onumber">1</p>
+                </td>
+                <td>
+                    <p class="press">经历</p>
+                </td>
+                <td>
+                    <p class="price">34.00$</p>
+                </td>
+                <td><button class="Odelete">删除</button></td>
+            </tr>
+        </table>
+        <!--       书库列表-->
+    </div>
+   
+
+    <script>
+        //        搜索功能
+        var find = document.getElementById('find');
+        //        搜索点击事件
+        find.onclick = function() {
+            //        获取搜索内容
+            var value1 = document.getElementById('value1'); //获取输入的书名
+            var value2 = document.getElementById('value2'); //获取输入的作者名
+            var value3 = document.getElementById('value3'); //获取输入的出版社名
+            var book = document.getElementsByClassName('book'); //获取书库书名       
+            var author = document.getElementsByClassName('author'); //获取书库作者名
+            var chubanshe = document.getElementsByClassName('press'); //获取书库出版社名
+
+            //遍历书库
+            for (var i = 0; i < book.length; i++) {
+
+                if (value1.value == book[i].innerHTML) {
+                    book[i].style.color = 'red';
+                    book[i].style.backgroundColor = 'white';
+                } else if (value2.value == author[i].innerHTML) {
+                    author[i].style.color = 'red';
+                    author[i].style.backgroundColor = 'white';
+                } else if (value3.value == chubanshe[i].innerHTML) {
+                    chubanshe[i].style.color = 'red';
+                    chubanshe[i].style.backgroundColor = 'white';
+
+
+                } else {
+                    book[i].parentNode.parentNode.style.display = 'none';
+                }
+
+            }
+            value1.value = '';
+            value2.value = '';
+            value3.value = '';
+        }
+
+       
+
+
+
+        
+        
+ //        删除功能
+        var Odelete = document.getElementsByClassName('Odelete');
+
+        for (var j = 0; j < Odelete.length; j++) {
+            Odelete[j].onclick = (function(idx) {
+
+                return function() {
+                    this.parentNode.parentNode.innerHTML = '';
+                }
+            })(j)
+        }
+
+    </script>
+</body>
+
+</html>
