@@ -1,0 +1,47 @@
+.title{
+	width: 500px;
+	height: 60px;
+	line-height: 60px;
+	margin: 0px;
+	
+    padding-left: 112px;
+    margin-left: 342px;
+display: inline-block;
+}
+.home{
+	width: 56px;
+	height: 60px;
+	background-color: #269ABC;
+	text-align: center;
+}
+.youJi,.mingBo{
+	width: 80px;
+	height: 60px;
+		text-align: center;
+}
+.hr{
+	display: block;	
+	text-decoration: none;
+	color: #000000;
+	font-size: 14px;
+}
+ul>li{
+	list-style: none;
+	float: left;
+}
+.target{
+	width: 80px;
+	height: 60px;
+		text-align: center;
+}
+.dianPing{
+	width:80px;
+	height: 60px;
+		text-align: center;
+}
+#denglu{
+	float: left;
+	  margin-top: 26px;
+    margin-left: 20px;
+
+}

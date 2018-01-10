@@ -1,167 +1,178 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>图书管理系统首页</title>
+		    <link rel="stylesheet" href="css/book.css">
+		    <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+		    <script src="js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+		    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+	</head>
+	<style type="text/css">
+		.header{
+			width: 100%;
+			height: 60px;
+			margin: 0px;
+			text-align: center;
+		}
+		body{
+			background-image: url(img/background.jpg);
+		}
+		#btn1,#btn2,#btn3,#btn4{
+            width: 116px;
+            height: 41px;
+		}
+		#con1,#con2,#con3,#con4{
+			width: 1000px;
+			margin: 0 auto;
+			height: 500px;
+			border: 1px solid #CCCCCC;
+		}
+		p{
+			margin: 0px;
+		}
+		#value1,#value2,#value3,#find{
+			height: 25px;
+		}
+		#table1{
+			border: 1px solid #000000;
+		}
 
-<head>
-    <meta charset="UTF-8">
-    <title>图书管理系统</title>
-    <style>
-        * {
-            padding: 0;
-            margin: 0;
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){		
+
+  //        搜索功能
+        var find = document.getElementById('find');
+        //        搜索点击事件
+        find.onclick = function() {
+            //        获取搜索内容
+            var value1 = document.getElementById('value1'); 
+            var value2 = document.getElementById('value2'); 
+            var value3 = document.getElementById('value3'); 
+            var book = document.getElementsByClassName('book');   
+            var author = document.getElementsByClassName('author'); 
+            var chubanshe = document.getElementsByClassName('press'); 
+    for (var i = 0; i < book.length; i++) {
+
+                if (value1.value == book[i].innerHTML) {
+
+                } else if (value2.value == author[i].innerHTML) {
+
+                } else if (value3.value == chubanshe[i].innerHTML) {
+
+                } else {
+                    book[i].parentNode.parentNode.style.display = 'none';
+                }
+
+            }
+            value1.value = '';
+            value2.value = '';
+            value3.value = '';
         }
+        
+         //        删除功能
+        var Odelete = document.getElementsByClassName('Odelete');
 
-        body {
-background-image: url(img/background.jpg);
+        for (var j = 0; j < Odelete.length; j++) {
+            Odelete[j].onclick = (function(idx) {
+
+                return function() {
+                    this.parentNode.parentNode.innerHTML = '';
+                }
+            })(j)
         }
+        
+        
+        //        添加图书功能
+        var footer = document.getElementsByClassName('footer');
+        var build = document.getElementById('build');
+        var add = document.getElementById('add');
 
-        h1 {
-            color: azure;
-        }
+        add.onclick = function() {
 
-        .header {
-            margin: 10px auto;
-            /*            height: 100px;*/
-            width: 80%;
-            margin-bottom: 30px;
-
-
-        }
-
-        #find {
-            width: 50px;
-            height: 30px;
-            background-color:#2AABD2;
- 
-        }
-
-        .header input {
-               border: 1px solid black;
-            height: 30px;
-
-        }
-
-        buttton {
-            border: 3px solid #ccc;
-            height: 30px;
-            width: 30px;
-
-        }
-
-        .context {
-            margin: 10px auto;
-            border-right-color: aqua;
-            /*            height: 500px;*/
-            width: 80%;
-            color: aliceblue;
-        }
-
-        .footer {
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            background-color: rgba(100, 100, 100, 0.7);
-            display: none;
-            height: 100%;
-            width: 100%;
-        }
-
-        .text1 {
-            position: fixed;
-            top: 0px;
-            left: 0px;
-            right: 0px;
-            bottom: 0px;
-            margin: auto;
-            height: 300px;
-            width: 600px;
-            background-color: #cffffc;
-            border-radius: 20px;
-            padding: 20px;
-        }
-
-        #build {
-            position: absolute;
-            right: 40px;
-            bottom: 40px;
-            border-radius: 10px;
-            height: 40px;
-            width: 60px;
-            border: 3px solid #cffcfc;
-            background-color: #cfcfff;
-
-        }
-
-        .Oinpt {
-            border-radius: 10px;
-            border: 1px solid #cfcfff;
-            height: 30px;
-            margin: 20px;
-        }
-
-        #table1 {
-            border: 1px solid #CCCCCC;
-            width: 80%;
-            text-align: center;
-        }
-
-        #table1 tr:nth-of-type(1) {
-            font-size: 2vw;
-            font-weight: bold;
-        }
-
-        #table1 tr td button {
-            border-radius: 30px;
-            height: 20px;
-            width: 40px;
-            border: 1px solid #fff;
-            background-color: cornsilk;
+            footer[0].style.display = 'block';
 
         }
+        build.onclick = function() {
+            var table1 = document.getElementById('table1'); //获取书库列表
+            var value4 = document.getElementById('value4'); //获取添加书名
+            var value5 = document.getElementById('value5'); //获取添加的作者名字
+            var value6 = document.getElementById('value6'); //获取添加的出版社名字
+            var value7 = document.getElementById('value7'); //获取添加的数量
+            var value8 = document.getElementById('value8'); //获取添加的价格
+                
+            var Oarr = [value4,value5,value6,value7,value8];
+            var Otr = document.createElement('tr');
+            for (var i = 0; i < 5; i++) {
+                var Otd = document.createElement('td');
+                var Op = document.createElement('p');
+                Op.innerHTML = Oarr[i].value;
+//                alert(Op.innerHTML);
+                table1.appendChild(Otr);
+                Otr.appendChild(Otd);
+                Otd.appendChild(Op);
+            }
+            var Otd = document.createElement('td');
+            var Obtn = document.createElement('button');
+            Obtn.className = 'Odelete';
+            Obtn.innerHTML = '删除';
+            Otr.appendChild(Otd);
+            Otd.appendChild(Obtn);
+// var Odelete = document.getElementsByClassName('Odelete');
 
-        #add {
 
-            height: 30px;
-            width: 70px;
-            border: 3px solid #cffcfc;
-            background-color: #269ABC;
-            margin-left: 73%;
-            margin-top: 10px;
+
+
+            footer[0].style.display = 'none';
+
         }
 
-        .findout {
-            color: red;
-            background-color: #fff;
-        }
-p{
-	color: black;
 }
-    </style>
-</head>
+		var i=1;
+    function tabb(tabb){
+	for(i=1;i<4;i++){
+		document.getElementById("con"+i).style.display="none";
 
-<body>
-    <!--   搜索栏-->
-    <div class="header">
-        <h1 style="text-align: center;margin-bottom: 20px;">欢迎来到图书管理系统</h1>
-        <div id="" style="text-align: center;">
-        	
-     
+	}
+	document.getElementById("con"+tabb).style.display="block";
+
+}
+
+	</script>
+	<body>
+		<div style="background-color: #00FFFF;height: 60px;margin: 0px;">
+			<ul class="title">
+						<li class="home"><a href="###" class="hr">首页</a></li>
+						<li class="target"><a href="###" class="hr">热门图书</a></li>
+						<li class="youJi"><a href="###" class="hr">图书排行</a></li>
+						<li class="dianPing"><a href="###" class="hr">图书收藏</a></li>
+						<li class="mingBo"><a href="###" class="hr">图书分类</a></li>
+		    </ul>
+		    <div id="denglu">
+			<a href="login.html" style="text-decoration: none;">【登录】</a>
+		</div>
+		</div>
+		
+		<div class="header" style="margin-top:40px;">
+    	<input type="button" name="" id="btn1" value="查询&删除" onclick="tabb(1)"/>
+    	<input type="button" name="" id="btn2" value="添加图书"  onclick="tabb(2)"/>
+    	<input type="button" name="" id="btn3" value="图书详情" onclick="tabb(3) "/>
+		</div>
+			<div id="con1">
+	<div id="" style="text-align: center;border:1px solid #000;">
         <input id="value1" type="text" placeholder="请输入书名">
         <input id="value2" type="text" placeholder="请输入作者">
         <input id="value3" type="text" placeholder="请输入出版社">
         <button id="find">搜索</button>
-   </div>
-
-    </div>
-    <!--   搜索栏-->
-    <div class="context">
-        <!--       书库列表-->
-        <table id="table1" style="margin: 0 auto;margin-bootom:20px;">
-            <tr>
+         <table id="table1" style="margin: 0 auto;margin-top: 30px;border-top:1px solid #000;"class="table table-hover">
+            <tr style="border:1px solid #000;">
                 <td><p>书名</p></td>
                 <td><p>作者名</p></td>
                 <td><p>数量</p></td>
                 <td><p>出版社</p></td>
                 <td><p>单价</p></td>
+                 <td><p>操作</p></td>
             </tr>
 
             <tr>
@@ -180,7 +191,7 @@ p{
                 <td>
                     <p class="price">36.00$</p>
                 </td>
-                <td><button class="Odelete">删除</button></td>
+        <td><button class="Odelete">删除</button></td>
             </tr>
             <tr>
                 <td>
@@ -198,7 +209,7 @@ p{
                 <td>
                     <p class="price">39.00$</p>
                 </td>
-                <td><button class="Odelete">删除</button></td>
+                 <td><button class="Odelete">删除</button></td>
             </tr>
             <tr>
                 <td>
@@ -216,7 +227,7 @@ p{
                 <td>
                     <p class="price">34.00$</p>
                 </td>
-                <td><button class="Odelete">删除</button></td>
+         <td><button class="Odelete">删除</button></td>
             </tr>
             <tr>
                 <td>
@@ -234,7 +245,7 @@ p{
                 <td>
                     <p class="price">34.00$</p>
                 </td>
-                <td><button class="Odelete">删除</button></td>
+  <td><button class="Odelete">删除</button></td>
             </tr>
             
               <tr>
@@ -253,7 +264,7 @@ p{
                 <td>
                     <p class="price">33.00$</p>
                 </td>
-                <td><button class="Odelete">删除</button></td>
+  <td><button class="Odelete">删除</button></td>
             </tr>
               <tr>
                 <td>
@@ -271,7 +282,7 @@ p{
                 <td>
                     <p class="price">33.00$</p>
                 </td>
-                <td><button class="Odelete">删除</button></td>
+  <td><button class="Odelete">删除</button></td>
             </tr>
             
               <tr>
@@ -290,7 +301,7 @@ p{
                 <td>
                     <p class="price">38.00$</p>
                 </td>
-                <td><button class="Odelete">删除</button></td>
+  <td><button class="Odelete">删除</button></td>
             </tr>
               <tr>
                 <td>
@@ -308,7 +319,7 @@ p{
                 <td>
                     <p class="price">54.00$</p>
                 </td>
-                <td><button class="Odelete">删除</button></td>
+  <td><button class="Odelete">删除</button></td>
             </tr>
             
               <tr>
@@ -327,69 +338,138 @@ p{
                 <td>
                     <p class="price">34.00$</p>
                 </td>
-                <td><button class="Odelete">删除</button></td>
+                  <td><button class="Odelete">删除</button></td>
+
             </tr>
         </table>
-        <!--       书库列表-->
-    </div>
+   </div>
+			</div>
+			<div id="con2" style="display: none;">
+				<div class="zhengti">
+		
+		<div class="iiput">
+    <input type="text" id="bookname" placeholder="书名">
+    <input type="text" id="author" placeholder="作者">
+    <input type="text" id="price" placeholder="价格">
+    <input type="button" id="addUser" value="添加">
+    	</div>
+    <table border="0" cellspacing="0" cellpadding="0" id="table "style="    border: 1px solid black;">
+    
+        <thead>
+            <th>书号</th>
+            <th>书名</th>
+            <th>作者</th>
+            <th>价格</th>
+            <th>操作</th>
+
+        </thead>
+        <tbody id="tby">
+        	 <tr >
+                <td>1</td>
+                <td>白夜行</td>
+                <td>东野圭吾</td>
+                <td>44</td>
+                <td>
+            </tr>
+             <tr >
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+            </tr>
+            <tr class="clone" id="clone">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+            </tr>
+        </tbody>
+    </table>
    
+    </div>
+			</div>
+			<div id="con3" style="display: none;">
+			 <ul>
+			 	<li><a href=""><img src="img/baiye.jpg"/></a></li>
+			    <li><a href=""><img src=""/></a></li>
+			    <li><a href=""><img src=""/></a></li>
+			    <li><a href=""><img src=""/></a></li>
+	
+			 </ul>
+			</div>
+	    
+			<script type="text/javascript" src="js/mode.js"></script>
+    <script type="text/javascript" src="js/new.js"></script>
+    <script type="text/javascript">
+       var add = document.getElementById("addUser");
+        var sys = new BookManagerSystem();//实例化对象
+        //ajax请求json数据添加三本书
+        var xhr = new XMLHttpRequest();
+        xhr.open("get","http://127.0.0.1:51002/book.json",true);//规定请求的类型、URL 以及是否异步处理请求。
+        xhr.send();//	将请求发送到服务器
+        xhr.onreadystatechange = function(){
+        	
+        	////readystate ->请求状态
+            //0 对象还没初始化结束 。1 对象开始发送请求 2 请求完成 3 数据正在返回 4 读取服务器数据结束
+            //status  1XX 100 101 信息的提示 2** 表示成功 3** 重竟像 4** 客户端错误  5** 服务器端错误 
+            if(xhr.readyState == 4){
 
-    <script>
-        //        搜索功能
-        var find = document.getElementById('find');
-        //        搜索点击事件
-        find.onclick = function() {
-            //        获取搜索内容
-            var value1 = document.getElementById('value1'); //获取输入的书名
-            var value2 = document.getElementById('value2'); //获取输入的作者名
-            var value3 = document.getElementById('value3'); //获取输入的出版社名
-            var book = document.getElementsByClassName('book'); //获取书库书名       
-            var author = document.getElementsByClassName('author'); //获取书库作者名
-            var chubanshe = document.getElementsByClassName('press'); //获取书库出版社名
-
-            //遍历书库
-            for (var i = 0; i < book.length; i++) {
-
-                if (value1.value == book[i].innerHTML) {
-                    book[i].style.color = 'red';
-                    book[i].style.backgroundColor = 'white';
-                } else if (value2.value == author[i].innerHTML) {
-                    author[i].style.color = 'red';
-                    author[i].style.backgroundColor = 'white';
-                } else if (value3.value == chubanshe[i].innerHTML) {
-                    chubanshe[i].style.color = 'red';
-                    chubanshe[i].style.backgroundColor = 'white';
-
-
-                } else {
-                    book[i].parentNode.parentNode.style.display = 'none';
+                if(xhr.status >= 200 && xhr.status<300){
+                    var data = JSON.parse(xhr.responseText);
+                    console.log(data);
+                    refreshTable(data);
                 }
-
             }
-            value1.value = '';
-            value2.value = '';
-            value3.value = '';
+        }
+        //ajax请求结束、、
+        var oTbody = document.getElementById("tby");
+        var cloneTr = document.getElementById("clone");
+        EventUtill.addEventHandler(window,"load",function(){
+            refreshTable();
+        })
+        EventUtill.addEventHandler(add,"click",addBooks);
+
+        function addBooks(){
+           var nameValue = document.getElementById("bookname").value;
+            var authorValue = document.getElementById("author").value;
+            var priceValue = Number(document.getElementById("price").value);
+            sys.addBook(nameValue,authorValue,priceValue);
+            console.log(sys.bookArr);
+            refreshTable()
         }
 
-       
-
-
-
-        
-        
- //        删除功能
-        var Odelete = document.getElementsByClassName('Odelete');
-
-        for (var j = 0; j < Odelete.length; j++) {
-            Odelete[j].onclick = (function(idx) {
-
-                return function() {
-                    this.parentNode.parentNode.innerHTML = '';
+        function refreshTable(data){
+            if(data){
+                for(var i = 0;i<data.books.length;i++){
+                    sys.addBook(data.books[i].name,data.books[i].author,data.books[i].price);
                 }
-            })(j)
+            }
+            oTbody.innerHTML = "";
+            for(var i = 0;i<sys.bookArr.length;i++){
+                var newTr = cloneTr.cloneNode(true);
+                newTr.removeAttribute("class");
+                newTr.removeAttribute("id");
+                var tds = newTr.getElementsByTagName("td");
+                tds[0].innerHTML = i +1;
+                tds[1].innerHTML = sys.bookArr[i].name;
+                tds[2].innerHTML = sys.bookArr[i].author;
+                tds[3].innerHTML = sys.bookArr[i].price;
+                oTbody.appendChild(newTr);
+
+            };
         }
+   EventUtill.removeEventHandler(del,"click",delBooks);
+             function del(){
+                   var n = obj.id;
+                   var m = n.slice(4);
+                    var b = Number(m);
+                    del(b);
+             }
+             
+             
 
     </script>
-</body>
-
+	</body>
 </html>
